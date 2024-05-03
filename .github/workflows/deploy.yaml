@@ -26,10 +26,10 @@ jobs:
           fetch-depth: 0 # Fetch all history for git info
       - name: Checkout content
         env:
-          SSH_KEY_FOR_CONTENT: ${{secrets.SSH_KEY_FOR_CONTENT}}
+          SSH_CONTENTS_KEY: ${{secrets.SSH_CONTENTS_KEY}}
         run: |
           mkdir $HOME/.ssh 
-          echo "$SSH_KEY_FOR_CONTENT" > $HOME/.ssh/id_ed25519 
+          echo "$SSH_CONTENTS_KEY" > $HOME/.ssh/id_ed25519 
           chmod 600 $HOME/.ssh/id_ed25519 
           git submodule update --init --remote
       - uses: actions/setup-node@v3
